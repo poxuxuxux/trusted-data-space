@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>北大登记平台</title>
+  <style>
+    :root {
+      --primary: #3B6FE5;
+      --primary-light: #1677FF;
+      --primary-bg: #F0F7FF;
+      --bg-page: #FFFFFF;
+      --bg-section: #F8FAFF;
+      --text-primary: #0A1628;
+      --text-secondary: #475569;
+      --text-tertiary: #64748B;
+      --border: #E2E8F0;
+      --border-light: #EDF2F7;
+      --footer-bg: #1A1A2E;
+      --footer-text: #8888A8;
+      --white: #FFFFFF;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      line-height: 1.5;
+      min-width: 320px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+      width: 100%;
+    }
+
+    /* 导航栏 */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .navbar-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-img {
+      width: 27px;
+      height: 32px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #396CAD;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary-light);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* 主内容区（占位） */
+    .page-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+    }
+
+    .placeholder-card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      padding: 72px 48px;
+      background: linear-gradient(135deg, rgba(239, 246, 255, 0.7) 0%, var(--white) 100%);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+    }
+
+    .placeholder-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .placeholder-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--white);
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-bg);
+    }
+
+    /* 页脚 */
+    .footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 24px 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+
+      .placeholder-card {
+        padding: 48px 24px;
+      }
+
+      .placeholder-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <div class="nav-left">
+        <img src="./assets/images/2_5-20260821_150924995.png" alt="Logo" class="logo-img">
+        <span class="logo-text">商务行业可信数据空间</span>
+      </div>
+      <div class="nav-right">
+        <a href="index.html" class="btn-primary">返回首页</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主内容区（占位） -->
+  <main class="page-main">
+    <div class="container">
+      <div class="placeholder-card">
+        <h1 class="placeholder-title">北大登记平台</h1>
+        <p class="placeholder-desc">此处为占位内容，后续将接入数据资源登记功能。</p>
+        <a href="index.html" class="btn-outline">返回首页</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>2024 中国国际电子商务中心 版权所有</span>
+        <div class="footer-bottom-links">
+          <a href="#">网站地图</a>
+          <a href="#">备案信息</a>
+          <a href="#">技术支持</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

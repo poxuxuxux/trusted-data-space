@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商务行业可信数据空间</title>
+  <style>
+    :root {
+      --primary: #3B6FE5;
+      --primary-light: #1677FF;
+      --primary-bg: #F0F7FF;
+      --bg-page: #FFFFFF;
+      --bg-section: #F8FAFF;
+      --text-primary: #0A1628;
+      --text-secondary: #475569;
+      --text-tertiary: #64748B;
+      --border: #E2E8F0;
+      --border-light: #EDF2F7;
+      --footer-bg: #1A1A2E;
+      --footer-text: #8888A8;
+      --white: #FFFFFF;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 999px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      line-height: 1.5;
+      min-width: 320px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    /* 导航栏 */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .navbar-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transform: translateX(-80px);
+      flex-shrink: 0;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .nav-right {
+      flex-shrink: 0;
+      margin-left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-search {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      width: 320px;
+      max-width: 100%;
+      padding: 8px 14px;
+      background: #F5F7FA;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-search:not([hidden]) {
+      display: flex;
+    }
+
+    .nav-search:focus-within {
+      background: #fff;
+      border-color: var(--primary-light);
+    }
+
+    .nav-search .search-icon {
+      width: 16px;
+      height: 16px;
+      color: #94A3B8;
+      flex-shrink: 0;
+    }
+
+    .nav-search input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 14px;
+      color: var(--text-primary);
+      min-width: 0;
+    }
+
+    .nav-search input::placeholder {
+      color: #94A3B8;
+    }
+
+    .btn-workbench {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: #fff;
+      color: var(--primary-light);
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-workbench:not([hidden]) {
+      display: flex;
+    }
+
+    .btn-workbench:hover {
+      background: var(--primary-bg);
+      border-color: var(--primary-light);
+    }
+
+    .btn-workbench svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .logo-img {
+      width: 27px;
+      height: 32px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #396CAD;
+      white-space: nowrap;
+    }
+
+    .nav-menu {
+      display: none;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-menu:not([hidden]) {
+      display: flex;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-light);
+    }
+
+    /* 平台切换下拉 */
+    .platform-switch {
+      position: relative;
+      margin-left: 16px;
+    }
+
+    .platform-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #1A3A6E;
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .platform-btn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+
+    .platform-switch.open .platform-btn svg {
+      transform: rotate(180deg);
+    }
+
+    .platform-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      min-width: 140px;
+      background: #1A3A6E;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: all 0.2s;
+      z-index: 110;
+    }
+
+    .platform-switch.open .platform-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .platform-option {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      text-align: left;
+      background: transparent;
+      color: var(--white);
+      font-size: 13px;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .platform-option:last-child {
+      border-bottom: none;
+    }
+
+    .platform-option:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* 侧边栏 */
+    .side-bar {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .side-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      background: var(--white);
+      color: var(--text-secondary);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: all 0.2s;
+      overflow: hidden;
+    }
+
+    .side-item:hover {
+      background: var(--primary-light);
+      color: var(--white);
+      border-color: var(--primary-light);
+    }
+
+    .side-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .side-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .side-label {
+      max-width: 0;
+      opacity: 0;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: max-width 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+    }
+
+    .side-item:hover .side-label {
+      max-width: 80px;
+      opacity: 1;
+      margin-left: 4px;
+    }
+
+    .side-toast {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      z-index: 300;
+      padding: 12px 24px;
+      background: rgba(26, 26, 46, 0.92);
+      color: var(--white);
+      font-size: 14px;
+      border-radius: var(--radius-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+
+    .side-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-item-has-dropdown {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 160px;
+      margin-top: 8px;
+      padding: 8px 0;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    .nav-item-has-dropdown:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-dropdown-item {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-dropdown-item:hover {
+      background: var(--primary-bg);
+      color: var(--primary-light);
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 480px;
+      overflow: hidden;
+    }
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-experience-btn {
+      position: absolute;
+      left: 50%;
+      bottom: 48px;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #1A3A6E, #2E5FA8);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(26, 58, 110, 0.35);
+      transition: background 0.25s, box-shadow 0.25s;
+    }
+
+    .hero-experience-btn:hover {
+      background: linear-gradient(135deg, #2E5FA8, #4A7FD0);
+      box-shadow: 0 10px 26px rgba(26, 58, 110, 0.45);
+    }
+
+    .hero-slide.active .hero-experience-btn {
+      display: inline-flex;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1440px;
+      height: 100%;
+      min-height: 480px;
+      margin: 0 auto;
+      padding: 0 80px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .hero-title,
+    .hero-subtitle {
+      text-align: left;
+    }
+
+    .hero-dots {
+      position: static;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(26, 58, 110, 0.35);
+      border: 1px solid rgba(26, 58, 110, 0.45);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .hero-dot.active {
+      width: 28px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      border-color: var(--primary-light);
+    }
+
+    /* 统计栏（含轮播指示器） */
+    .stats {
+      position: relative;
+      z-index: 10;
+      padding: 32px 0 40px;
+      background: transparent;
+    }
+
+    .stats-dots {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    /* 平台概况（数据要素跨境） */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .cross-border-top {
+      padding-top: 40px;
+    }
+
+    .overview-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 32px;
+      box-shadow: 0 8px 24px rgba(26, 58, 110, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .overview-card .oc-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1A3A6E, #2E5FA8);
+      flex-shrink: 0;
+    }
+
+    .overview-card .oc-num {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .overview-card .oc-label {
+      font-size: 15px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* 数据登记动态表格 */
+    .registry-section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 32px 32px;
+      box-shadow: 0 8px 24px rgba(26, 58, 110, 0.08);
+      margin-bottom: 48px;
+    }
+
+    .registry-table-wrap {
+      overflow-x: auto;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+
+    .registry-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .registry-table th,
+    .registry-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #eef1f6;
+    }
+
+    .registry-table th {
+      position: sticky;
+      top: 0;
+      background: #f4f7fc;
+      color: var(--primary);
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .registry-table tbody tr:hover {
+      background: #f8faff;
+    }
+
+    /* 入表占位 */
+    .placeholder-block {
+      margin: 60px auto;
+      max-width: 900px;
+      min-height: 320px;
+      border: 2px dashed #c3d0e6;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a97ad;
+      font-size: 18px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* 通用平台板块标题 */
+    .platform-section-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      margin: 48px 0 32px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      line-height: 1.625;
+      color: var(--text-secondary);
+    }
+
+    /* 统计栏 */
+    .stats {
+      position: relative;
+      z-index: 10;
+      padding: 0 0 40px;
+      background: transparent;
+      margin-top: -72px;
+    }
+
+    .stats-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 44px;
+      margin-bottom: 12px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .stat-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 32px;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(4px);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #EBF3FF 0%, #D6E7FF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--primary-light);
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-light);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* 区块标题 */
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .section-title .icon {
+      font-size: 20px;
+    }
+
+    /* 我要加入 */
+    .join-section {
+      padding: 28px 0;
+      background: var(--bg-page);
+    }
+
+    .join-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .join-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.25s;
+    }
+
+    .join-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .join-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(59, 111, 229, 0.25);
+    }
+
+    .join-tab-icon {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .join-panel {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .join-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .join-card {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+    }
+
+    .join-flowchart {
+      margin-bottom: 12px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-section);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      color: var(--text-tertiary);
+      font-size: 16px;
+      font-weight: 500;
+      overflow: hidden;
+    }
+
+    .join-flowchart img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .join-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .join-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .join-card-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .join-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .join-card-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .join-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--white);
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-bg);
+    }
+
+    /* 热门推荐 */
+    .recommend {
+      padding: 64px 0;
+      background: var(--bg-section);
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tags {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-height: 42px;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .filter-tags.expanded {
+      max-height: 150px;
+    }
+
+    .filter-tag {
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-light);
+      background: var(--white);
+      color: var(--text-secondary);
+      font-size: 14px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .filter-tag:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-tag.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    .filter-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-light);
+      background: var(--white);
+      color: var(--primary-light);
+      font-size: 14px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .filter-toggle svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+
+    .filter-toggle.expanded svg {
+      transform: rotate(180deg);
+    }
+
+    .recommend-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .recommend-card {
+      background: linear-gradient(135deg, rgba(239, 246, 255, 0.7) 0%, var(--white) 100%);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      border: 1px solid var(--border-light);
+    }
+
+    .recommend-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .recommend-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .recommend-card-arrow {
+      color: var(--primary-light);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .recommend-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .recommend-item {
+      display: flex;
+      gap: 12px;
+      padding: 16px 4px;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    }
+
+    .recommend-item:last-child {
+      border-bottom: none;
+    }
+
+    .recommend-thumb {
+      width: 80px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      background: #E6EFFF;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .recommend-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .recommend-item-desc {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .recommend-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 16px;
+      color: var(--primary-light);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* 生态伙伴 */
+    .partners {
+      padding: 64px 0;
+      background: url('./assets/images/joinus-bg.png') center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .partner-row {
+      position: relative;
+      margin-bottom: 16px;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+    }
+
+    .partner-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .partner-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: scroll-left 40s linear infinite;
+    }
+
+    .partner-row:nth-child(2) .partner-track {
+      animation: scroll-right 45s linear infinite;
+    }
+
+    .partner-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-33.333%); }
+    }
+
+    @keyframes scroll-right {
+      0% { transform: translateX(-33.333%); }
+      100% { transform: translateX(0); }
+    }
+
+    .partner-card {
+      width: 160px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      font-size: 14px;
+      color: var(--text-primary);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .partner-card img {
+      max-width: 130px;
+      max-height: 44px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 48px 0 0;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr max-content;
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+
+    .footer-contact-col .footer-link {
+      white-space: nowrap;
+    }
+
+    .footer-brand-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--footer-text);
+    }
+
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-link {
+      display: block;
+      font-size: 13px;
+      color: var(--footer-text);
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--white);
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      font-size: 12px;
+      color: var(--footer-text);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--white);
+    }
+
+    /* 响应式 */
+    @media (max-width: 1200px) {
+      .container {
+        padding: 0 48px;
+      }
+
+      .nav-left {
+        transform: translateX(-48px);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-center {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .recommend-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+
+      .nav-left {
+        transform: translateX(-24px);
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .join-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <div class="nav-left">
+        <img src="./assets/images/2_5-20260821_150924995.png" alt="Logo" class="logo-img">
+        <span class="logo-text">商务行业可信数据空间</span>
+      </div>
+      <div class="nav-center" id="navCenter">
+        <div class="nav-menu">
+          <a href="#" class="nav-link active">首页</a>
+          <a href="#" class="nav-link">数据资源</a>
+          <a href="#" class="nav-link">数据产品</a>
+          <a href="#" class="nav-link">供需大厅</a>
+          <div class="nav-item-has-dropdown">
+            <a href="#" class="nav-link">专区节点</a>
+            <div class="nav-dropdown">
+              <a href="car-data-space.html" class="nav-dropdown-item">汽车可信数据空间</a>
+            </div>
+          </div>
+          <a href="#" class="nav-link">接入连接器</a>
+          <a href="#" class="nav-link">关于我们</a>
+        </div>
+      </div>
+      <div class="nav-right">
+        <button class="btn-primary">登录/注册</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 侧边栏 -->
+  <aside class="side-bar">
+    <button class="side-item" data-action="publish">
+      <span class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </span>
+      <span class="side-label">发布需求</span>
+    </button>
+    <button class="side-item" data-action="cart">
+      <span class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="20" r="1.5"/>
+          <circle cx="18" cy="20" r="1.5"/>
+          <path d="M2 3h3l2.4 12.4a1 1 0 001 .8h8.7a1 1 0 001-.8L21 7H6"/>
+        </svg>
+      </span>
+      <span class="side-label">购物车</span>
+    </button>
+    <button class="side-item" data-action="service">
+      <span class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+      </span>
+      <span class="side-label">联系客服</span>
+    </button>
+  </aside>
+
+  <!-- 侧边栏提示弹窗（占位） -->
+  <div class="side-toast" id="sideToast"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide active" style="background-image: url('./assets/images/商务行业可信数据空间.png');">
+        <button class="hero-experience-btn">立即体验 →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 统计栏 -->
+  <section class="stats">
+    <div class="stats-dots" id="heroDots"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18"/>
+              <path d="M5 21V7l8-4 8 4v14"/>
+              <path d="M9 10h.01"/>
+              <path d="M9 14h.01"/>
+              <path d="M15 10h.01"/>
+              <path d="M15 14h.01"/>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-number">7</div>
+            <div class="stat-label">归集企业数</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/>
+              <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+              <path d="M3 12a9 3 0 0 0 18 0"/>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-number">19</div>
+            <div class="stat-label">数据资源上架量</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-number">18</div>
+            <div class="stat-label">数据产品上架量</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-number">26</div>
+            <div class="stat-label">数据产品订单量</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 首页各平台板块 -->
+  <div id="homeSections">
+    <!-- 热门推荐 -->
+    <section class="recommend">
+      <div class="container">
+        <h2 class="section-title"><span class="icon">🔥</span>热门推荐<span class="icon">🔥</span></h2>
+        <div class="filter-bar">
+          <div class="filter-tags">
+            <button class="filter-tag active">全部</button>
+            <button class="filter-tag">跨境电商</button>
+            <button class="filter-tag">消费</button>
+            <button class="filter-tag">电子商务</button>
+            <button class="filter-tag">外贸</button>
+            <button class="filter-tag">以旧换新</button>
+            <button class="filter-tag">有奖发票</button>
+            <button class="filter-tag">成品油</button>
+            <button class="filter-tag">服务贸易</button>
+            <button class="filter-tag">物流</button>
+            <button class="filter-tag">连锁经营</button>
+            <button class="filter-tag">合同</button>
+          </div>
+          <button class="filter-toggle" id="filterToggle">
+            查看更多
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="recommend-cards">
+          <div class="recommend-card">
+            <div class="recommend-card-header">
+              <h3 class="recommend-card-title">数据资源</h3>
+              <span class="recommend-card-arrow">→</span>
+            </div>
+            <div class="recommend-list">
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/child-bg.png"><div><div class="recommend-item-title">全国跨境电商交易数据集</div><div class="recommend-item-desc">覆盖20+省市跨境交易流水，日更新量超百万条，支持多维画像分析</div></div></div>
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/joinus-bg.png"><div><div class="recommend-item-title">重点商圈消费画像数据</div><div class="recommend-item-desc">汇聚核心商圈客流与消费偏好，支撑精准营销与选址决策</div></div></div>
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/Firefly_gpt-image_扩图 634693.png"><div><div class="recommend-item-title">外贸企业信用评价库</div><div class="recommend-item-desc">整合海关、税务等多源外贸企业信用指标，输出评级结果</div></div></div>
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/ChatGPT Image 2026年8月21日 16_40_35.png"><div><div class="recommend-item-title">连锁零售销售流水数据</div><div class="recommend-item-desc">含门店POS与线上订单，覆盖连锁品牌300+，支持复购分析</div></div></div>
+            </div>
+            <a href="#" class="recommend-more">了解更多 →</a>
+          </div>
+
+          <div class="recommend-card">
+            <div class="recommend-card-header">
+              <h3 class="recommend-card-title">数据产品</h3>
+              <span class="recommend-card-arrow">→</span>
+            </div>
+            <div class="recommend-list">
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/joinus-bg.png"><div><div class="recommend-item-title">消费趋势洞察报告</div><div class="recommend-item-desc">基于多源消费数据生成的区域消费指数产品，可按周/月订阅</div></div></div>
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/child-bg.png"><div><div class="recommend-item-title">外贸风险预警服务</div><div class="recommend-item-desc">实时监测目标国政策与汇率风险，提供预警订阅与推送</div></div></div>
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/ChatGPT Image 2026年8月21日 16_40_35.png"><div><div class="recommend-item-title">物流轨迹智能分析</div><div class="recommend-item-desc">融合运力与轨迹数据，输出时效预测与异常告警模型</div></div></div>
+              <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/Firefly_gpt-image_扩图 634693.png"><div><div class="recommend-item-title">成品油价格监测产品</div><div class="recommend-item-desc">全国成品油价格采集与波动分析服务，覆盖加油站网点</div></div></div>
+            </div>
+            <a href="#" class="recommend-more">了解更多 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 我要加入 -->
+    <section class="join-section">
+      <div class="container">
+        <h2 class="section-title"><span class="icon">🙋‍♀️</span>我要加入<span class="icon">💁‍♂️</span></h2>
+        <div class="join-tabs">
+          <button class="join-tab active" data-tab="have">
+            <span class="join-tab-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+              </svg>
+            </span>
+            我有资源
+          </button>
+          <button class="join-tab" data-tab="need">
+            <span class="join-tab-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="M16 16l4 4"/>
+              </svg>
+            </span>
+            我要资源
+          </button>
+        </div>
+
+        <div class="join-panel active" id="panel-have">
+          <div class="join-card">
+            <div class="join-flowchart"><img src="./assets/images/登记流程图.png" alt="登记流程图"></div>
+            <div class="join-actions">
+              <a class="btn-primary" href="register-pku.html">去登记资源</a>
+              <a class="btn-outline" href="register-dianxin.html">去注册资源</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="join-panel" id="panel-need">
+          <div class="join-card">
+            <div class="join-flowchart">流程图占位</div>
+            <div class="join-actions">
+              <button class="btn-primary">去发现资源</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 生态伙伴 -->
+    <section class="partners">
+      <div class="container">
+        <h2 class="section-title"><span class="icon">🎉</span>生态伙伴<span class="icon">🎉</span></h2>
+        <div class="partner-row">
+          <div class="partner-track">
+            <div class="partner-card"><img src="./assets/images/生态伙伴logo/acfic_emblem.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/cadz_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/cgcc_logo.jpg" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/ct_wikimedia.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/gzdtg_logo.png" alt="合作伙伴"></div>
+            <div class="partner-card"><img src="./assets/images/生态伙伴logo/acfic_emblem.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/cadz_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/cgcc_logo.jpg" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/ct_wikimedia.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/gzdtg_logo.png" alt="合作伙伴"></div>
+            <div class="partner-card"><img src="./assets/images/生态伙伴logo/acfic_emblem.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/cadz_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/cgcc_logo.jpg" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/ct_wikimedia.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/gzdtg_logo.png" alt="合作伙伴"></div>
+          </div>
+        </div>
+        <div class="partner-row">
+          <div class="partner-track">
+            <div class="partner-card"><img src="./assets/images/生态伙伴logo/p1_12.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/pkulinkang_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/qichacha_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/ruc_red_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/tc609_logo.png" alt="合作伙伴"></div>
+            <div class="partner-card"><img src="./assets/images/生态伙伴logo/p1_12.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/pkulinkang_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/qichacha_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/ruc_red_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/tc609_logo.png" alt="合作伙伴"></div>
+            <div class="partner-card"><img src="./assets/images/生态伙伴logo/p1_12.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/pkulinkang_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/qichacha_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/ruc_red_logo.png" alt="合作伙伴"></div><div class="partner-card"><img src="./assets/images/生态伙伴logo/tc609_logo.png" alt="合作伙伴"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-brand-title">商务行业可信数据空间</div>
+          <p class="footer-brand-desc">以技术底座护航数据合规流通，夯实数字经济新型基础设施</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">平台服务</div>
+          <a href="#" class="footer-link">数据资源</a>
+          <a href="#" class="footer-link">数据产品</a>
+          <a href="#" class="footer-link">供需大厅</a>
+          <a href="car-data-space.html" class="footer-link">汽车可信数据空间</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">支持与帮助</div>
+          <a href="#" class="footer-link">接入连接器</a>
+          <a href="#" class="footer-link">帮助中心</a>
+          <a href="#" class="footer-link">联系客服</a>
+          <a href="#" class="footer-link">关于我们</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">友情链接</div>
+          <a href="#" class="footer-link">中国国际电子商务中心</a>
+        </div>
+        <div class="footer-col footer-contact-col">
+          <div class="footer-col-title">联系我们</div>
+          <a href="#" class="footer-link">地址：北京经济技术开发区荣华中路11号</a>
+          <a href="#" class="footer-link">邮编：100176</a>
+          <a href="#" class="footer-link">联系电话：010-67870108</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span>2024 中国国际电子商务中心 版权所有</span>
+        <div class="footer-bottom-links">
+          <a href="#">网站地图</a>
+          <a href="#">备案信息</a>
+          <a href="#">技术支持</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 我要加入 Tab 切换
+    const joinTabs = document.querySelectorAll('.join-tab');
+    const joinPanels = document.querySelectorAll('.join-panel');
+
+    joinTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+
+        joinTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        joinPanels.forEach(panel => {
+          panel.classList.toggle('active', panel.id === 'panel-' + target);
+        });
+      });
+    });
+
+    // 热门推荐筛选标签
+    const filterTags = document.querySelectorAll('.filter-tag');
+    filterTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        filterTags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+      });
+    });
+
+    // 初始平台（单一站点，无平台切换）
+    const currentPlatformName = '可信数据空间';
+
+    // 侧边栏功能
+    const sideItems = document.querySelectorAll('.side-item');
+    const sideToast = document.getElementById('sideToast');
+    const sideToastMessages = {
+      publish: '发布需求（占位）',
+      cart: '购物车（占位）',
+      service: '联系客服（占位）'
+    };
+    let sideToastTimer = null;
+
+    sideItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const action = item.dataset.action;
+        sideToast.textContent = sideToastMessages[action] || '占位功能';
+        sideToast.classList.add('show');
+        clearTimeout(sideToastTimer);
+        sideToastTimer = setTimeout(() => {
+          sideToast.classList.remove('show');
+        }, 2000);
+      });
+    });
+
+    // Hero 轮播
+    (function initHeroSlider() {
+      const slides = document.querySelectorAll('.hero-slide');
+      const dotsContainer = document.getElementById('heroDots');
+      let current = 0;
+      let autoTimer = null;
+
+      if (!slides.length) return;
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'hero-dot' + (index === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', '切换到第' + (index + 1) + '张');
+        dot.addEventListener('click', () => goTo(index));
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll('.hero-dot');
+
+      window.heroAutoEnabled = (currentPlatformName === '可信数据空间');
+
+      function goTo(index) {
+        if (index === current) return;
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        resetAutoPlay();
+      }
+
+      function next() {
+        if (!window.heroAutoEnabled) return;
+        goTo((current + 1) % slides.length);
+      }
+
+      function resetAutoPlay() {
+        clearInterval(autoTimer);
+        if (window.heroAutoEnabled) {
+          autoTimer = setInterval(next, 5000);
+        }
+      }
+
+      // 立即体验按钮：滚动到首页板块
+      slides.forEach(slide => {
+        const btn = slide.querySelector('.hero-experience-btn');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          const target = document.querySelector('#homeSections');
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      resetAutoPlay();
+    })();
+  </script>
+</body>
+</html>
