@@ -711,16 +711,10 @@
       margin-bottom: 12px;
     }
 
-    .stats .container {
-      max-width: 100%;
-      padding: 0 40px;
-    }
-
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(max-content, 1fr));
-      gap: 20px;
-      overflow-x: auto;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
 
     .stat-card {
@@ -755,7 +749,6 @@
       color: var(--primary-light);
       line-height: 1;
       font-variant-numeric: tabular-nums;
-      white-space: nowrap;
     }
 
     .stat-label {
@@ -763,7 +756,6 @@
       color: var(--text-secondary);
       margin-top: 4px;
       letter-spacing: 0.05em;
-      white-space: nowrap;
     }
 
     /* 区块标题 */
@@ -1253,8 +1245,7 @@
       }
 
       .stats-grid {
-        grid-template-columns: repeat(4, minmax(max-content, 1fr));
-        overflow-x: auto;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .overview-grid {
