@@ -688,10 +688,16 @@
       margin-top: -72px;
     }
 
+    .stats .container {
+      max-width: 100%;
+      padding: 0 40px;
+    }
+
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(6, minmax(max-content, 1fr));
+      gap: 16px;
+      overflow-x: auto;
     }
 
     /* 内容区搜索框 */
@@ -798,6 +804,7 @@
       color: var(--primary-light);
       line-height: 1;
       font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
 
     .stat-label {
@@ -969,7 +976,8 @@
       }
 
       .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(6, minmax(max-content, 1fr));
+        overflow-x: auto;
       }
     }
 
