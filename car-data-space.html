@@ -6,11 +6,11 @@
   <title>汽车可信数据空间</title>
   <style>
     :root {
-      --primary: #3B6FE5;
-      --primary-light: #1677FF;
-      --primary-bg: #F0F7FF;
+      --primary: #1E3A8A;
+      --primary-light: #3B5BB5;
+      --primary-bg: #EEF1F9;
       --bg-page: #FFFFFF;
-      --bg-section: #F8FAFF;
+      --bg-section: #F1F5F9;
       --text-primary: #0A1628;
       --text-secondary: #475569;
       --text-tertiary: #64748B;
@@ -87,7 +87,7 @@
     .logo-text {
       font-size: 22px;
       font-weight: 600;
-      color: #396CAD;
+      color: #1E3A8A;
       white-space: nowrap;
     }
 
@@ -113,6 +113,7 @@
       align-items: center;
       justify-content: center;
       padding: 64px 24px;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59, 91, 181, 0.08), transparent 70%);
     }
 
     .placeholder-card {
@@ -120,7 +121,7 @@
       width: 100%;
       text-align: center;
       padding: 72px 48px;
-      background: linear-gradient(135deg, rgba(239, 246, 255, 0.7) 0%, var(--white) 100%);
+      background: linear-gradient(135deg, rgba(238, 241, 249, 0.7) 0%, var(--white) 100%);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-card);
@@ -129,14 +130,16 @@
     .placeholder-title {
       font-size: 32px;
       font-weight: 700;
+      line-height: 1.3;
       color: var(--primary);
       margin-bottom: 16px;
     }
 
     .placeholder-desc {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-secondary);
       margin-bottom: 32px;
+      letter-spacing: 0.05em;
     }
 
     .footer {
