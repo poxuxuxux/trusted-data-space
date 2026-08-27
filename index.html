@@ -1474,7 +1474,7 @@
               <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/Firefly_gpt-image_扩图 634693.png"><div><div class="recommend-item-title">外贸企业信用评价库</div><div class="recommend-item-desc">整合海关、税务等多源外贸企业信用指标，输出评级结果</div></div></div>
               <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/ChatGPT Image 2026年8月21日 16_40_35.png"><div><div class="recommend-item-title">连锁零售销售流水数据</div><div class="recommend-item-desc">含门店POS与线上订单，覆盖连锁品牌300+，支持复购分析</div></div></div>
             </div>
-            <a href="#" class="recommend-more">了解更多 →</a>
+            <a href="#" class="recommend-more" data-toast="数据资源页面正在建设中，敬请期待">了解更多 →</a>
           </div>
 
           <div class="recommend-card">
@@ -1488,7 +1488,7 @@
               <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/ChatGPT Image 2026年8月21日 16_40_35.png"><div><div class="recommend-item-title">物流轨迹智能分析</div><div class="recommend-item-desc">融合运力与轨迹数据，输出时效预测与异常告警模型</div></div></div>
               <div class="recommend-item"><img class="recommend-thumb" src="./assets/images/Firefly_gpt-image_扩图 634693.png"><div><div class="recommend-item-title">成品油价格监测产品</div><div class="recommend-item-desc">全国成品油价格采集与波动分析服务，覆盖加油站网点</div></div></div>
             </div>
-            <a href="#" class="recommend-more">了解更多 →</a>
+            <a href="#" class="recommend-more" data-toast="数据产品页面正在建设中，敬请期待">了解更多 →</a>
           </div>
         </div>
       </div>
@@ -1520,7 +1520,7 @@
 
         <div class="join-panel active" id="panel-have">
           <div class="join-card">
-            <div class="join-flowchart"><img src="./assets/images/我要资源流程图.png" alt="我要资源流程图"></div>
+            <div class="join-flowchart"><img src="./assets/images/登记流程图.png" alt="登记资源流程图"></div>
             <div class="join-actions">
               <a class="btn-primary" href="register-pku.html">去登记资源</a>
               <a class="btn-outline" href="register-dianxin.html">去注册资源</a>
@@ -1530,9 +1530,9 @@
 
         <div class="join-panel" id="panel-need">
           <div class="join-card">
-            <div class="join-flowchart">流程图占位</div>
+            <div class="join-flowchart"><img src="./assets/images/我要资源流程图.png" alt="我要资源流程图"></div>
             <div class="join-actions">
-              <button class="btn-primary">去发现资源</button>
+              <button class="btn-primary" data-toast="数据资源页面正在建设中，敬请期待">去发现资源</button>
             </div>
           </div>
         </div>
@@ -1648,15 +1648,27 @@
     };
     let sideToastTimer = null;
 
+    function showToast(msg) {
+      sideToast.textContent = msg;
+      sideToast.classList.add('show');
+      clearTimeout(sideToastTimer);
+      sideToastTimer = setTimeout(() => {
+        sideToast.classList.remove('show');
+      }, 2000);
+    }
+
     sideItems.forEach(item => {
       item.addEventListener('click', () => {
         const action = item.dataset.action;
-        sideToast.textContent = sideToastMessages[action] || '占位功能';
-        sideToast.classList.add('show');
-        clearTimeout(sideToastTimer);
-        sideToastTimer = setTimeout(() => {
-          sideToast.classList.remove('show');
-        }, 2000);
+        showToast(sideToastMessages[action] || '占位功能');
+      });
+    });
+
+    // 热门推荐 / 我要资源：占位提示
+    document.querySelectorAll('[data-toast]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast(el.dataset.toast);
       });
     });
 
