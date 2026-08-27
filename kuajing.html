@@ -152,7 +152,7 @@
     }
 
     .btn-workbench {
-      display: none;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 8px 18px;
@@ -167,10 +167,6 @@
       white-space: nowrap;
     }
 
-    .btn-workbench:not([hidden]) {
-      display: flex;
-    }
-
     .btn-workbench:hover {
       background: var(--primary-bg);
       border-color: var(--primary-light);
@@ -179,6 +175,45 @@
     .btn-workbench svg {
       width: 16px;
       height: 16px;
+    }
+
+    .btn-outline-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 500;
+      background: #fff;
+      transition: all 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-outline-sm:hover {
+      background: var(--primary-bg);
+    }
+
+    .btn-primary-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-light);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary-sm:hover {
+      opacity: 0.9;
     }
 
     .logo-img {
@@ -513,12 +548,11 @@
       text-align: left;
     }
 
-    .hero-dots {
-      position: static;
-      z-index: 3;
+    .stats-dots {
       display: flex;
-      align-items: center;
       justify-content: center;
+      margin-top: 44px;
+      margin-bottom: 12px;
       gap: 10px;
     }
 
@@ -637,8 +671,9 @@
     .stats {
       position: relative;
       z-index: 10;
-      padding: 32px 0 40px;
-      background: #fff;
+      padding: 0 0 40px;
+      background: transparent;
+      margin-top: -72px;
     }
 
     .stats-grid {
@@ -660,16 +695,17 @@
       gap: 10px;
       width: 520px;
       max-width: 90vw;
-      padding: 12px 20px;
-      background: #F5F7FA;
+      padding: 8px 10px 8px 20px;
+      background: #fff;
       border-radius: var(--radius-full);
-      border: 1px solid transparent;
+      border: 1px solid var(--primary-light);
       transition: border-color 0.2s, background 0.2s;
     }
 
     .section-search-box:focus-within {
       background: #fff;
       border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.12);
     }
 
     .section-search-box .search-icon {
@@ -691,6 +727,31 @@
 
     .section-search-box input::placeholder {
       color: #94A3B8;
+    }
+
+    .search-submit {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      border: none;
+      padding: 0;
+    }
+
+    .search-submit:hover {
+      opacity: 0.9;
+    }
+
+    .search-submit svg {
+      width: 18px;
+      height: 18px;
     }
 
     .stat-card {
@@ -947,6 +1008,9 @@
         <div class="nav-menu">
           <a href="#" class="nav-link active">首页</a>
           <a href="#" class="nav-link">数据目录</a>
+          <a href="#" class="nav-link">平台服务</a>
+          <a href="#" class="nav-link">咨询服务</a>
+          <a href="#" class="nav-link">关于我们</a>
         </div>
       </div>
       <div class="nav-right">
@@ -959,6 +1023,7 @@
           </svg>
           工作台
         </button>
+        <button class="btn-primary">登录/注册</button>
       </div>
     </div>
   </nav>
@@ -1007,6 +1072,7 @@
 
   <!-- 统计栏 -->
   <section class="stats">
+    <div class="stats-dots" id="heroDots"></div>
     <div class="container">
       <div class="stats-grid">
         <div class="stat-card">
@@ -1103,6 +1169,12 @@
         <path d="M16 16l4 4"/>
       </svg>
       <input type="text" placeholder="输入资产名称查询" />
+      <button class="search-submit" aria-label="搜索">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="M16 16l4 4"/>
+        </svg>
+      </button>
     </div>
   </section>
 
@@ -1221,25 +1293,25 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-col">
-          <div class="footer-brand-title">商务行业可信数据空间</div>
+          <div class="footer-brand-title">数据要素跨境一体化平台</div>
           <p class="footer-brand-desc">以技术底座护航数据合规流通，夯实数字经济新型基础设施</p>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">平台服务</div>
-          <a href="#" class="footer-link">数据资源</a>
-          <a href="#" class="footer-link">数据产品</a>
-          <a href="#" class="footer-link">供需大厅</a>
-          <a href="car-data-space.html" class="footer-link">汽车可信数据空间</a>
+          <a href="#" class="footer-link">数据目录</a>
+          <a href="#" class="footer-link">工具服务</a>
+          <a href="#" class="footer-link">咨询服务</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">支持与帮助</div>
-          <a href="#" class="footer-link">接入连接器</a>
           <a href="#" class="footer-link">帮助中心</a>
           <a href="#" class="footer-link">联系客服</a>
           <a href="#" class="footer-link">关于我们</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">友情链接</div>
+          <a href="index.html" class="footer-link">商务行业可信数据空间</a>
+          <a href="rukiao.html" class="footer-link">数据资源入表公共服务平台</a>
           <a href="#" class="footer-link">中国国际电子商务中心</a>
         </div>
         <div class="footer-col footer-contact-col">
