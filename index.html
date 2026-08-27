@@ -1356,13 +1356,13 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-slider" id="heroSlider">
-      <div class="hero-slide active" style="background-image: url('./assets/images/商务行业可信数据空间.png');">
+      <div class="hero-slide active" data-href="index.html" style="background-image: url('./assets/images/商务行业可信数据空间.png');">
         <button class="hero-experience-btn">立即体验 →</button>
       </div>
-      <div class="hero-slide" style="background-image: url('./assets/images/数据要素跨境一体化平台-2.png');">
+      <div class="hero-slide" data-href="kuajing.html" style="background-image: url('./assets/images/数据要素跨境一体化平台-2.png');">
         <button class="hero-experience-btn">立即体验 →</button>
       </div>
-      <div class="hero-slide" style="background-image: url('./assets/images/数据资源入表公共服务平台.png');">
+      <div class="hero-slide" data-href="rukiao.html" style="background-image: url('./assets/images/数据资源入表公共服务平台.png');">
         <button class="hero-experience-btn">立即体验 →</button>
       </div>
     </div>
@@ -1702,13 +1702,18 @@
         }
       }
 
-      // 立即体验按钮：滚动到首页板块
+      // 立即体验按钮：跳转到对应平台
       slides.forEach(slide => {
         const btn = slide.querySelector('.hero-experience-btn');
         if (!btn) return;
         btn.addEventListener('click', () => {
-          const target = document.querySelector('#homeSections');
-          if (target) target.scrollIntoView({ behavior: 'smooth' });
+          const href = slide.getAttribute('data-href');
+          if (href) {
+            window.location.href = href;
+          } else {
+            const target = document.querySelector('#homeSections');
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+          }
         });
       });
 
