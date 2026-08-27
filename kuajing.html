@@ -647,6 +647,52 @@
       gap: 20px;
     }
 
+    /* 内容区搜索框 */
+    .section-search {
+      padding: 24px 0 8px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .section-search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 520px;
+      max-width: 90vw;
+      padding: 12px 20px;
+      background: #F5F7FA;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .section-search-box:focus-within {
+      background: #fff;
+      border-color: var(--primary-light);
+    }
+
+    .section-search-box .search-icon {
+      width: 18px;
+      height: 18px;
+      color: #94A3B8;
+      flex-shrink: 0;
+    }
+
+    .section-search-box input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 15px;
+      color: var(--text-primary);
+      min-width: 0;
+    }
+
+    .section-search-box input::placeholder {
+      color: #94A3B8;
+    }
+
     .stat-card {
       display: flex;
       align-items: center;
@@ -902,13 +948,6 @@
           <a href="#" class="nav-link active">首页</a>
           <a href="#" class="nav-link">数据目录</a>
         </div>
-        <div class="nav-search">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="7"/>
-            <path d="M16 16l4 4"/>
-          </svg>
-          <input type="text" placeholder="输入资产名称查询" />
-        </div>
       </div>
       <div class="nav-right">
         <button class="btn-workbench">
@@ -1053,6 +1092,17 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 内容区搜索框 -->
+  <section class="section-search">
+    <div class="section-search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"/>
+        <path d="M16 16l4 4"/>
+      </svg>
+      <input type="text" placeholder="输入资产名称查询" />
     </div>
   </section>
 
