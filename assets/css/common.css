@@ -462,9 +462,9 @@ img {
 /* ========== 数据资源 / 数据产品 列表页 ========== */
 .catalog-page {
   min-height: 60vh;
-  padding: 96px 0 64px;
+  padding: 360px 0 64px;
   background:
-    url('../images/child-bg.png') center 20px / 720px auto no-repeat,
+    url('../images/child-bg.png') center top / 100% auto no-repeat,
     linear-gradient(180deg, #E8F1FB 0%, #F3F7FC 420px, #F6F8FB 100%);
 }
 
