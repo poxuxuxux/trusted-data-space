@@ -718,6 +718,10 @@ img {
 .cat-filters {
   margin-top: 28px;
   position: relative;
+  background: #F4F7FC;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
 }
 
 .cat-filters-toolbar {
