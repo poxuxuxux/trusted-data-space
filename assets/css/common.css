@@ -462,7 +462,7 @@ img {
 /* ========== 数据资源 / 数据产品 列表页 ========== */
 .catalog-page {
   min-height: 60vh;
-  padding: 200px 0 64px;
+  padding: 130px 0 64px;
   position: relative;
   background:
     url('../images/child-bg.png') center top / 100% auto no-repeat,
