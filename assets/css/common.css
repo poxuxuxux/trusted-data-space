@@ -726,7 +726,7 @@ img {
   margin-bottom: 8px;
 }
 
-.cat-filters.collapsed .cat-filter-row .cat-filter-tags {
+.cat-filters.collapsed .cat-filter-row:not(:first-child) {
   display: none;
 }
 
