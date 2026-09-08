@@ -3,177 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>汽车可信数据空间</title>
-  <style>
-    :root {
-      --primary: #1E3A8A;
-      --primary-light: #3B5BB5;
-      --primary-bg: #EEF1F9;
-      --bg-page: #FFFFFF;
-      --bg-section: #F1F5F9;
-      --text-primary: #0A1628;
-      --text-secondary: #475569;
-      --text-tertiary: #64748B;
-      --border: #E2E8F0;
-      --border-light: #EDF2F7;
-      --footer-bg: #1A1A2E;
-      --footer-text: #8888A8;
-      --white: #FFFFFF;
-      --radius-sm: 6px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --radius-xl: 16px;
-      --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      color: var(--text-primary);
-      background: var(--bg-page);
-      line-height: 1.5;
-      min-width: 320px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 80px;
-      width: 100%;
-    }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .navbar-inner {
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-img {
-      width: 27px;
-      height: 32px;
-      border-radius: 6px;
-      object-fit: cover;
-    }
-
-    .logo-text {
-      font-size: 22px;
-      font-weight: 600;
-      color: #1E3A8A;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--white);
-      padding: 8px 20px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-weight: 500;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    .page-main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 64px 24px;
-      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59, 91, 181, 0.08), transparent 70%);
-    }
-
-    .placeholder-card {
-      max-width: 560px;
-      width: 100%;
-      text-align: center;
-      padding: 72px 48px;
-      background: linear-gradient(135deg, rgba(238, 241, 249, 0.7) 0%, var(--white) 100%);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-card);
-    }
-
-    .placeholder-title {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--primary);
-      margin-bottom: 16px;
-    }
-
-    .placeholder-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      letter-spacing: 0.05em;
-    }
-
-    .footer {
-      background: var(--footer-bg);
-      color: var(--footer-text);
-      padding: 24px 0;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 24px;
-      }
-
-      .placeholder-card {
-        padding: 48px 24px;
-      }
-
-      .placeholder-title {
-        font-size: 24px;
-      }
-    }
-  </style>
+  <title>专区节点 - 商务行业可信数据空间</title>
   <link rel="stylesheet" href="./assets/css/common.css">
 </head>
 <body>
+  <!-- 导航栏 -->
   <nav class="navbar">
     <div class="container navbar-inner">
       <div class="nav-left">
@@ -189,7 +23,7 @@
           <div class="nav-item-has-dropdown">
             <a href="zone-nodes.html" class="nav-link active">专区节点</a>
             <div class="nav-dropdown">
-              <a href="car-data-space.html" class="nav-dropdown-item current">汽车可信数据空间</a>
+              <a href="car-data-space.html" class="nav-dropdown-item">汽车可信数据空间</a>
             </div>
           </div>
           <a href="connector.html" class="nav-link">接入连接器</a>
@@ -243,16 +77,16 @@
   <!-- 侧边栏提示弹窗（占位） -->
   <div class="side-toast" id="sideToast"></div>
 
+  <!-- 主体内容（待补充） -->
   <main class="page-main">
     <div class="container">
-      <div class="placeholder-card">
-        <h1 class="placeholder-title">汽车可信数据空间</h1>
-        <p class="placeholder-desc">此处为占位内容，后续将接入汽车可信数据空间功能。</p>
-        <a href="index.html" class="btn-primary">返回首页</a>
-      </div>
+      <h1 class="page-title">专区节点</h1>
+      <p class="page-desc">页面内容待补充</p>
+      <div class="page-placeholder">专区节点页面内容待补充</div>
     </div>
   </main>
 
+  <!-- 页脚 -->
   <footer class="footer">
     <div class="container">
       <div class="footer-top">

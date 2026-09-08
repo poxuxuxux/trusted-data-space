@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据产品 - 商务行业可信数据空间</title>
+  <link rel="stylesheet" href="./assets/css/common.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <div class="nav-left">
+        <img src="./assets/images/2_5-20260821_150924995.png" alt="Logo" class="logo-img">
+        <span class="logo-text">商务行业可信数据空间</span>
+      </div>
+      <div class="nav-center" id="navCenter">
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">首页</a>
+          <a href="data-resource.html" class="nav-link">数据资源</a>
+          <a href="data-product.html" class="nav-link active">数据产品</a>
+          <a href="supply-demand.html" class="nav-link">供需大厅</a>
+          <div class="nav-item-has-dropdown">
+            <a href="zone-nodes.html" class="nav-link">专区节点</a>
+            <div class="nav-dropdown">
+              <a href="car-data-space.html" class="nav-dropdown-item">汽车可信数据空间</a>
+            </div>
+          </div>
+          <a href="connector.html" class="nav-link">接入连接器</a>
+          <div class="nav-item-has-dropdown">
+            <a href="platform-nav.html" class="nav-link">平台导航</a>
+            <div class="nav-dropdown">
+              <a href="index.html" class="nav-dropdown-item current">商务行业可信数据空间</a>
+              <a href="kuajing.html" class="nav-dropdown-item">数据跨境流动一体化综合服务平台</a>
+              <a href="rukiao.html" class="nav-dropdown-item">数据资源入表公共服务平台</a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">关于我们</a>
+        </div>
+      </div>
+      <div class="nav-right">
+        <button class="btn-primary">登录/注册</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 侧边栏 -->
+  <aside class="side-bar">
+    <button class="side-item" data-action="publish">
+      <span class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </span>
+      <span class="side-label">发布需求</span>
+    </button>
+    <button class="side-item" data-action="cart">
+      <span class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="20" r="1.5"/>
+          <circle cx="18" cy="20" r="1.5"/>
+          <path d="M2 3h3l2.4 12.4a1 1 0 001 .8h8.7a1 1 0 001-.8L21 7H6"/>
+        </svg>
+      </span>
+      <span class="side-label">购物车</span>
+    </button>
+    <button class="side-item" data-action="service">
+      <span class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+      </span>
+      <span class="side-label">联系客服</span>
+    </button>
+  </aside>
+
+  <!-- 侧边栏提示弹窗（占位） -->
+  <div class="side-toast" id="sideToast"></div>
+
+  <!-- 数据产品列表 -->
+  <main class="catalog-page">
+    <div class="container">
+      <h1 class="cat-title">发现高价值数据产品</h1>
+      <p class="cat-subtitle">连接供给与需求，让数据可信、安全、可流通</p>
+
+      <!-- 搜索 -->
+      <div class="cat-search">
+        <span class="cat-search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16 16l4 4"/></svg>
+        </span>
+        <input type="text" placeholder="搜索数据产品，如：消费趋势">
+        <button class="cat-search-btn" data-toast="搜索功能（占位）">搜索</button>
+      </div>
+
+      <!-- 热门搜索 -->
+      <div class="cat-hot">
+        <span class="cat-hot-label">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 3-1 5.2-3 7.2 2-1 3.2-2.2 3.2-4.2 2.1 2 4.2 4 4.2 8a5.4 5.4 0 01-10.8 0C5.6 9.4 7.6 7.4 8.6 5.4 8.8 7.4 9.8 8.4 11 8.4c1.2-3-1-6.4 1-6.4z"/></svg>
+          热门搜索：
+        </span>
+        <button class="cat-hot-tag">消费趋势</button>
+        <button class="cat-hot-tag">外贸风险</button>
+        <button class="cat-hot-tag">信用评分</button>
+        <button class="cat-hot-tag">客流预测</button>
+        <button class="cat-hot-tag">单证审核</button>
+      </div>
+
+      <!-- 筛选器 -->
+      <div class="cat-filters">
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">应用领域</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag">政府/公共</button>
+            <button class="cat-tag active">AI</button>
+            <button class="cat-tag">医疗</button>
+            <button class="cat-tag">信用</button>
+            <button class="cat-tag">金融</button>
+            <button class="cat-tag">商业</button>
+            <button class="cat-tag">交通</button>
+            <button class="cat-tag">教育</button>
+            <button class="cat-tag">农业</button>
+            <button class="cat-tag">环保</button>
+            <span class="cat-extra-tags" id="fieldExtra">
+              <button class="cat-tag">统计</button>
+              <button class="cat-tag">气象</button>
+              <button class="cat-tag">监管</button>
+              <button class="cat-tag">科创</button>
+              <button class="cat-tag">通讯</button>
+              <button class="cat-tag">其他</button>
+            </span>
+            <button class="cat-tag-toggle" id="fieldToggle">收缩 <span class="caret">∧</span></button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">产品类型</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag">数据集</button>
+            <button class="cat-tag">API产品</button>
+            <button class="cat-tag">模型</button>
+            <button class="cat-tag">智能体</button>
+            <button class="cat-tag">数据应用</button>
+            <button class="cat-tag">数据报告</button>
+            <button class="cat-tag">数据服务</button>
+            <button class="cat-tag">其他</button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">产品状态</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag">已上架</button>
+            <button class="cat-tag">已登记</button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">数据分类</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag">行业数据</button>
+            <button class="cat-tag">商业数据</button>
+            <button class="cat-tag">公共数据</button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">数据范围</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag">国际</button>
+            <button class="cat-tag">全国</button>
+            <button class="cat-tag">省级 <span class="caret">∨</span></button>
+            <button class="cat-tag">市级 <span class="caret">∨</span></button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">来源平台</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag active">本地</button>
+            <button class="cat-tag">本区域其他业务节点 <span class="caret">∨</span></button>
+            <button class="cat-tag">区域 <span class="caret">∨</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 结果工具栏 -->
+      <div class="cat-toolbar">
+        <div class="cat-result-count">为您找到 <b>44</b> 条结果</div>
+        <div class="cat-sort">
+          <button class="cat-sort-btn active">综合排序</button>
+          <button class="cat-sort-btn">上架时间 <span class="cat-sort-arrows">⇅</span></button>
+          <button class="cat-sort-btn">浏览量</button>
+          <button class="cat-sort-btn">价格 <span class="cat-sort-arrows">⇅</span></button>
+        </div>
+      </div>
+
+      <!-- 卡片网格 -->
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/child-bg.png" alt="">
+            <h3 class="cat-card-title">消费趋势洞察报告</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">数据报告</span></div>
+          <p class="cat-card-desc">基于多源消费数据生成的区域消费指数产品，可按周/月订阅。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">中国国际电子商务中心</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">北京区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-05-18 10:21:09</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 12</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 50MB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">面议</span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/joinus-bg.png" alt="">
+            <h3 class="cat-card-title">外贸风险预警服务</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V2.0</span><span class="badge badge-type">数据服务</span></div>
+          <p class="cat-card-desc">实时监测目标国政策与汇率风险，提供预警订阅与推送。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">浙江自贸区数据科技有限公司</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">杭州区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-06-02 14:55:33</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 8</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 80MB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">¥ 2.00 <small>元/次</small></span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/firefly-expand.png" alt="">
+            <h3 class="cat-card-title">物流轨迹智能分析</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">模型</span></div>
+          <p class="cat-card-desc">融合运力与轨迹数据，输出时效预测与异常告警模型。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">中交物流数据服务有限公司</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">广州区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-07-09 09:12:47</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 5</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 200MB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">面议</span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/chatgpt-20260821.png" alt="">
+            <h3 class="cat-card-title">成品油价格监测产品</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">数据服务</span></div>
+          <p class="cat-card-desc">全国成品油价格采集与波动分析服务，覆盖加油站网点。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">中国国际电子商务中心</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">北京区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-05-31 19:13:02</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 2</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 100MB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">面议</span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/child-bg.png" alt="">
+            <h3 class="cat-card-title">跨境电商选品模型</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">模型</span></div>
+          <p class="cat-card-desc">基于历史交易与趋势数据，输出品类推荐与定价建议。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">杭州直播电商数据有限公司</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">杭州区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-08-14 16:57:16</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 6</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 5GB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">¥ 1.00 <small>元/次</small></span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/joinus-bg.png" alt="">
+            <h3 class="cat-card-title">商圈客流预测智能体</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">智能体</span></div>
+          <p class="cat-card-desc">结合天气、节假日与历史客流，预测商圈未来客流。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">上海零售大数据有限公司</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">上海区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-09-21 11:30:58</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 3</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 300MB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">面议</span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/firefly-expand.png" alt="">
+            <h3 class="cat-card-title">企业信用评分 API</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">API产品</span></div>
+          <p class="cat-card-desc">输入企业名称实时返回信用评分与风险标签。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">中贸信用数据服务有限公司</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">深圳区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-10-29 13:32:23</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 4</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 100MB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">¥ 0.50 <small>元/次</small></span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/chatgpt-20260821.png" alt="">
+            <h3 class="cat-card-title">外贸单证智能审核</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">智能体</span></div>
+          <p class="cat-card-desc">自动识别与审核外贸单证，减少人工复核成本。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">中商数据科技有限公司</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">北京区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-11-08 15:37:17</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 0</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 700B</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">¥ 1.00 <small>元/次</small></span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+
+        <article class="cat-card">
+          <div class="cat-card-head">
+            <img class="cat-card-logo" src="./assets/images/child-bg.png" alt="">
+            <h3 class="cat-card-title">区域消费指数 API</h3>
+          </div>
+          <div class="cat-card-badges"><span class="badge badge-ver">V1.0</span><span class="badge badge-type">API产品</span></div>
+          <p class="cat-card-desc">输入区域与行业编码，返回消费指数与环比变化。</p>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+            <span class="cat-meta-text">中国国际电子商务中心</span>
+          </div>
+          <div class="cat-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+            <span class="cat-meta-text">北京区域节点/商务行业可信数据空间</span>
+          </div>
+          <div class="cat-card-info">
+            <span class="cat-info-date">2025-12-01 09:00:00</span>
+            <span class="spacer"></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg> 0</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> 1TB</span>
+          </div>
+          <div class="cat-card-bottom">
+            <span class="cat-price">¥ 1.00 <small>元/次</small></span>
+            <a class="cat-buy" data-toast="申购功能（占位）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M9 9h6M9 13h6M9 17h3"/></svg> 申购</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- 分页 -->
+      <div class="cat-pagination">
+        <span class="cat-page-info">第 1-9 条/总共 44 条</span>
+        <div class="cat-pages">
+          <button class="cat-page-btn active">1</button>
+          <button class="cat-page-btn">2</button>
+          <button class="cat-page-btn">3</button>
+          <button class="cat-page-btn">4</button>
+          <button class="cat-page-btn">5</button>
+          <button class="cat-page-btn">›</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-brand-title">商务行业可信数据空间</div>
+          <p class="footer-brand-desc">以技术底座护航数据合规流通，夯实数字经济新型基础设施</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">平台服务</div>
+          <a href="data-resource.html" class="footer-link">数据资源</a>
+          <a href="data-product.html" class="footer-link">数据产品</a>
+          <a href="supply-demand.html" class="footer-link">供需大厅</a>
+          <a href="car-data-space.html" class="footer-link">汽车可信数据空间</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">支持与帮助</div>
+          <a href="connector.html" class="footer-link">接入连接器</a>
+          <a href="#" class="footer-link">帮助中心</a>
+          <a href="#" class="footer-link">联系客服</a>
+          <a href="about.html" class="footer-link">关于我们</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">友情链接</div>
+          <a href="#" class="footer-link">中国国际电子商务中心</a>
+          <a href="kuajing.html" class="footer-link">数据跨境流动一体化综合服务平台</a>
+          <a href="rukiao.html" class="footer-link">数据资源入表公共服务平台</a>
+        </div>
+        <div class="footer-col footer-contact-col">
+          <div class="footer-col-title">联系我们</div>
+          <a href="#" class="footer-link">地址：北京经济技术开发区荣华中路11号</a>
+          <a href="#" class="footer-link">邮编：100176</a>
+          <a href="tel:010-67870108" class="footer-link">联系电话：010-67870108</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span>2024 中国国际电子商务中心 版权所有</span>
+        <div class="footer-bottom-links">
+          <a href="#">网站地图</a>
+          <a href="#">备案信息</a>
+          <a href="#">技术支持</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/common.js"></script>
+</body>
+</html>
