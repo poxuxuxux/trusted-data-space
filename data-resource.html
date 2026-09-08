@@ -107,11 +107,15 @@
 
       <!-- 筛选器 -->
       <div class="cat-filters">
+        <div class="cat-filters-toolbar">
+          <button class="cat-tag-toggle" id="filtersToggle">收缩 <span class="caret">∧</span></button>
+        </div>
         <div class="cat-filter-row">
           <span class="cat-filter-label">应用领域</span>
           <div class="cat-filter-tags">
+            <button class="cat-tag active">全部</button>
             <button class="cat-tag">政府/公共</button>
-            <button class="cat-tag active">AI</button>
+            <button class="cat-tag">AI</button>
             <button class="cat-tag">医疗</button>
             <button class="cat-tag">信用</button>
             <button class="cat-tag">金融</button>
@@ -120,20 +124,18 @@
             <button class="cat-tag">教育</button>
             <button class="cat-tag">农业</button>
             <button class="cat-tag">环保</button>
-            <span class="cat-extra-tags" id="fieldExtra">
-              <button class="cat-tag">统计</button>
-              <button class="cat-tag">气象</button>
-              <button class="cat-tag">监管</button>
-              <button class="cat-tag">科创</button>
-              <button class="cat-tag">通讯</button>
-              <button class="cat-tag">其他</button>
-            </span>
-            <button class="cat-tag-toggle" id="fieldToggle">收缩 <span class="caret">∧</span></button>
+            <button class="cat-tag">统计</button>
+            <button class="cat-tag">气象</button>
+            <button class="cat-tag">监管</button>
+            <button class="cat-tag">科创</button>
+            <button class="cat-tag">通讯</button>
+            <button class="cat-tag">其他</button>
           </div>
         </div>
         <div class="cat-filter-row">
           <span class="cat-filter-label">资源类型</span>
           <div class="cat-filter-tags">
+            <button class="cat-tag active">全部</button>
             <button class="cat-tag">数据集</button>
             <button class="cat-tag">API产品</button>
             <button class="cat-tag">模型</button>
@@ -147,6 +149,7 @@
         <div class="cat-filter-row">
           <span class="cat-filter-label">资源状态</span>
           <div class="cat-filter-tags">
+            <button class="cat-tag active">全部</button>
             <button class="cat-tag">已上架</button>
             <button class="cat-tag">已登记</button>
           </div>
@@ -154,6 +157,7 @@
         <div class="cat-filter-row">
           <span class="cat-filter-label">数据分类</span>
           <div class="cat-filter-tags">
+            <button class="cat-tag active">全部</button>
             <button class="cat-tag">行业数据</button>
             <button class="cat-tag">商业数据</button>
             <button class="cat-tag">公共数据</button>
@@ -162,6 +166,7 @@
         <div class="cat-filter-row">
           <span class="cat-filter-label">数据范围</span>
           <div class="cat-filter-tags">
+            <button class="cat-tag active">全部</button>
             <button class="cat-tag">国际</button>
             <button class="cat-tag">全国</button>
             <button class="cat-tag">省级 <span class="caret">∨</span></button>
@@ -171,7 +176,8 @@
         <div class="cat-filter-row">
           <span class="cat-filter-label">来源平台</span>
           <div class="cat-filter-tags">
-            <button class="cat-tag active">本地</button>
+            <button class="cat-tag active">全部</button>
+            <button class="cat-tag">本地</button>
             <button class="cat-tag">本区域其他业务节点 <span class="caret">∨</span></button>
             <button class="cat-tag">区域 <span class="caret">∨</span></button>
           </div>

@@ -634,10 +634,6 @@ img {
 }
 
 /* 筛选器 */
-.cat-filters {
-  margin-top: 28px;
-}
-
 .cat-filter-row {
   display: flex;
   align-items: flex-start;
@@ -649,7 +645,8 @@ img {
   flex-shrink: 0;
   width: 68px;
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--primary);
+  font-weight: 500;
   line-height: 31px;
 }
 
@@ -702,10 +699,10 @@ img {
 .cat-tag-toggle {
   padding: 6px 14px;
   background: var(--white);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--primary);
   border-radius: var(--radius-sm);
   font-size: 13px;
-  color: var(--text-secondary);
+  color: var(--primary);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -714,8 +711,27 @@ img {
 }
 
 .cat-tag-toggle:hover {
-  color: var(--primary-light);
-  border-color: var(--primary-light);
+  background: var(--primary);
+  color: var(--white);
+}
+
+.cat-filters {
+  margin-top: 28px;
+  position: relative;
+}
+
+.cat-filters-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.cat-filters.collapsed .cat-filter-row .cat-filter-tags {
+  display: none;
+}
+
+.cat-filters.collapsed .cat-filter-row {
+  padding: 4px 0;
 }
 
 /* 结果工具栏 */

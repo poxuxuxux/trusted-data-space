@@ -48,13 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 应用领域：展开 / 收缩第二行
-  var fieldToggle = document.getElementById('fieldToggle');
-  var fieldExtra = document.getElementById('fieldExtra');
-  if (fieldToggle && fieldExtra) {
-    fieldToggle.addEventListener('click', function () {
-      var collapsed = fieldExtra.classList.toggle('collapsed');
-      fieldToggle.innerHTML = collapsed ? '展开 <span class="caret">∨</span>' : '收缩 <span class="caret">∧</span>';
+  // 筛选区：展开 / 收缩整个筛选区
+  var filtersToggle = document.getElementById('filtersToggle');
+  var filtersWrap = document.querySelector('.cat-filters');
+  if (filtersToggle && filtersWrap) {
+    filtersToggle.addEventListener('click', function () {
+      var collapsed = filtersWrap.classList.toggle('collapsed');
+      filtersToggle.innerHTML = collapsed ? '展开 <span class="caret">∨</span>' : '收缩 <span class="caret">∧</span>';
     });
   }
 
