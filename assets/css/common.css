@@ -819,6 +819,9 @@ img {
 }
 
 .cat-tag-toggle {
+  margin-left: auto;
+  flex-shrink: 0;
+  align-self: flex-start;
   padding: 6px 14px;
   background: var(--white);
   border: 1px solid var(--primary);
