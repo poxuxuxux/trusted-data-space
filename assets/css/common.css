@@ -1023,6 +1023,100 @@ img {
   height: 14px;
 }
 
+/* 需求卡片：状态 tag / 信息框 / 底部按钮 */
+.badge-status {
+  color: #047857;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  font-weight: 500;
+  font-size: 11px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.cat-demand-info-box {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #F0F5FF;
+  border: 1px solid #DCE5FF;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.cat-demand-info-item {
+  display: flex;
+  gap: 8px;
+  line-height: 1.7;
+}
+
+.cat-demand-info-item .label {
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+}
+
+.cat-demand-divider {
+  margin: 14px 0;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.cat-demand-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cat-demand-deadline {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.cat-demand-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.cat-demand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.cat-demand-btn.btn-outline {
+  background: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.cat-demand-btn.btn-outline:hover {
+  background: var(--primary-bg);
+}
+
+.cat-demand-btn.btn-solid {
+  background: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
+}
+
+.cat-demand-btn.btn-solid:hover {
+  opacity: 0.92;
+}
+
 /* 卡片网格 */
 .cat-grid {
   display: grid;
