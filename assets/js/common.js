@@ -123,4 +123,19 @@ document.addEventListener('DOMContentLoaded', function () {
     statsCarousel.addEventListener('mouseleave', startAuto);
     if (sSlides.length > 1) startAuto();
   }
+
+  /* ===== 关于我们：图库 Tab 切换 ===== */
+  var aboutGallery = document.getElementById('aboutGallery');
+  if (aboutGallery) {
+    var aboutTabs = aboutGallery.querySelectorAll('.about-tab');
+    var aboutPanels = aboutGallery.querySelectorAll('.about-panel');
+    Array.prototype.forEach.call(aboutTabs, function (tab, i) {
+      tab.addEventListener('click', function () {
+        Array.prototype.forEach.call(aboutTabs, function (t) { t.classList.remove('active'); });
+        Array.prototype.forEach.call(aboutPanels, function (p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        aboutPanels[i].classList.add('active');
+      });
+    });
+  }
 });
