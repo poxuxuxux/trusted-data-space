@@ -77,12 +77,151 @@
   <!-- 侧边栏提示弹窗（占位） -->
   <div class="side-toast" id="sideToast"></div>
 
-  <!-- 主体内容（待补充） -->
-  <main class="page-main">
+  <!-- 主体内容 -->
+  <main class="catalog-page">
     <div class="container">
-      <h1 class="page-title">供需大厅</h1>
-      <p class="page-desc">页面内容待补充</p>
-      <div class="page-placeholder">供需大厅页面内容待补充</div>
+      <h1 class="cat-title">发现高价值数据需求</h1>
+      <div class="odometer-wrap">
+        <div class="odometer">
+          <span class="odometer-cell"><span class="digit">0</span></span>
+          <span class="odometer-cell"><span class="digit">2</span></span>
+          <span class="odometer-cell"><span class="digit">4</span></span>
+          <span class="odometer-cell"><span class="digit">5</span></span>
+        </div>
+        <span class="odometer-suffix">条</span>
+      </div>
+
+      <!-- 搜索 -->
+      <div class="cat-search">
+        <span class="cat-search-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16 16l4 4"/></svg>
+        </span>
+        <input type="text" placeholder="请输入您要查找的数据需求">
+        <button class="cat-search-btn" data-toast="搜索功能（占位）">搜索</button>
+      </div>
+
+      <!-- 热门搜索 -->
+      <div class="cat-hot">
+        <span class="cat-hot-label">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.2 3-1 5.2-3 7.2 2-1 3.2-2.2 3.2-4.2 2.1 2 4.2 4 4.2 8a5.4 5.4 0 01-10.8 0C5.6 9.4 7.6 7.4 8.6 5.4 8.8 7.4 9.8 8.4 11 8.4c1.2-3-1-6.4 1-6.4z"/></svg>
+          热门搜索：
+        </span>
+        <button class="cat-hot-tag">消费画像</button>
+        <button class="cat-hot-tag">外贸信用</button>
+        <button class="cat-hot-tag">成品油</button>
+        <button class="cat-hot-tag">物流轨迹</button>
+        <button class="cat-hot-tag">有奖发票</button>
+      </div>
+
+      <!-- 筛选器 -->
+      <div class="cat-filters">
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">需求类型</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag active">不限</button>
+            <button class="cat-tag">数据资源需求</button>
+            <button class="cat-tag">数据产品需求</button>
+            <button class="cat-tag">数据服务需求</button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">所属行业</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag active">不限</button>
+            <button class="cat-tag">卫生和社会工作</button>
+            <button class="cat-tag">教育</button>
+            <button class="cat-tag">建筑业</button>
+            <button class="cat-tag">农、林、牧、渔业</button>
+            <button class="cat-tag">制造业</button>
+            <button class="cat-tag">信息传输</button>
+            <button class="cat-tag">金融业</button>
+            <button class="cat-tag">批发和零售业</button>
+            <button class="cat-tag-toggle" id="filtersToggle">展开 <span class="caret">∨</span></button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">数据范围</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag active">不限</button>
+            <button class="cat-tag">国际</button>
+            <button class="cat-tag">全国</button>
+            <button class="cat-tag">省级 <span class="caret">∨</span></button>
+            <button class="cat-tag">市级 <span class="caret">∨</span></button>
+          </div>
+        </div>
+        <div class="cat-filter-row">
+          <span class="cat-filter-label">发布时间</span>
+          <div class="cat-filter-tags">
+            <button class="cat-tag active">不限</button>
+            <button class="cat-tag">24 小时内</button>
+            <button class="cat-tag">近 7 天</button>
+            <button class="cat-tag">近 30 天</button>
+            <button class="cat-tag">近 90 天</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 结果工具栏 -->
+      <div class="cat-toolbar">
+        <div class="cat-result-count">共有 <b>1</b> 个数据需求</div>
+        <button class="cat-publish-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          发布需求
+        </button>
+        <div class="cat-sort" style="margin-left:auto;">
+          <button class="cat-sort-btn active">更新时间</button>
+          <button class="cat-sort-btn">浏览量</button>
+          <button class="cat-sort-btn">收藏量</button>
+        </div>
+      </div>
+
+      <!-- 数据需求列表 -->
+      <div class="cat-demand-list">
+        <div class="cat-demand-item">
+          <div class="cat-demand-head">
+            <span class="badge badge-type">数据资源需求</span>
+            <span class="cat-demand-title">2型糖尿病数据</span>
+          </div>
+          <div class="cat-demand-desc">30名二型糖尿病患者用药及检查数据</div>
+          <div class="cat-demand-meta">
+            <span class="cat-demand-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+              所属行业：卫生和社会工作
+            </span>
+            <span class="cat-demand-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+              需求单位：北方健康医疗大数据科技有限公司
+            </span>
+            <span class="cat-demand-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              发布时间：2026-07-10
+            </span>
+            <div class="cat-demand-actions">
+              <span class="cat-demand-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                53
+              </span>
+              <span class="cat-demand-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                1
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分页 -->
+      <div class="cat-pagination">
+        <span class="cat-page-info">共 1 条</span>
+        <div class="cat-pages">
+          <button class="cat-page-btn" disabled>‹</button>
+          <button class="cat-page-btn active">1</button>
+          <button class="cat-page-btn" disabled>›</button>
+        </div>
+        <div class="cat-pages">
+          <button class="cat-page-btn" style="min-width:80px;">10 条/页 ▾</button>
+        </div>
+      </div>
     </div>
   </main>
 

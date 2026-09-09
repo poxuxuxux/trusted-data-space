@@ -915,6 +915,111 @@ img {
   opacity: 0.75;
 }
 
+/* 数据需求列表（供需大厅） */
+.cat-demand-list {
+  margin-top: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.cat-demand-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cat-demand-item:last-child {
+  border-bottom: none;
+}
+
+.cat-demand-item:hover {
+  background: var(--bg-section);
+}
+
+.cat-demand-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cat-demand-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.cat-demand-desc {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.cat-demand-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  flex-wrap: wrap;
+}
+
+.cat-demand-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.cat-demand-meta-item svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.cat-demand-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.cat-demand-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cat-demand-action svg {
+  width: 14px;
+  height: 14px;
+}
+
+.cat-publish-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cat-publish-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
 /* 卡片网格 */
 .cat-grid {
   display: grid;
