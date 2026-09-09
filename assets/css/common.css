@@ -485,6 +485,123 @@ img {
   letter-spacing: 0.08em;
 }
 
+/* 副标题翻页数字卡（odometer） */
+.odometer-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.odometer-prefix {
+  font-size: 14px;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.odometer-carousel {
+  position: relative;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.odometer-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.odometer-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.odometer {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.odometer-cell {
+  position: relative;
+  width: 50px;
+  height: 68px;
+  background: linear-gradient(180deg, #4F5FA0 0%, #3A4A8A 100%);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.odometer-cell::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 3;
+}
+
+.odometer-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.22) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.odometer-cell .digit {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.odometer-suffix {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-left: 6px;
+}
+
+.cat-stats-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cat-stats-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+}
+
+.cat-stats-dot.active {
+  background: var(--primary);
+  width: 18px;
+  border-radius: 3px;
+}
+
 /* 搜索框 */
 .cat-search {
   max-width: 660px;

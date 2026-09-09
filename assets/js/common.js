@@ -96,4 +96,31 @@ document.addEventListener('DOMContentLoaded', function () {
       if (catSearchInput) catSearchInput.value = t.textContent.trim();
     });
   });
+
+  // 副标题数据翻页卡片
+  var statsCarousel = document.getElementById('statsCarousel');
+  if (statsCarousel) {
+    var sSlides = statsCarousel.querySelectorAll('.odometer-slide');
+    var sDots = document.querySelectorAll('#statsDots .cat-stats-dot');
+    var sIdx = 0;
+    var sTimer = null;
+    function showStats(i) {
+      sIdx = (i + sSlides.length) % sSlides.length;
+      Array.prototype.forEach.call(sSlides, function (s, j) { s.classList.toggle('active', j === sIdx); });
+      Array.prototype.forEach.call(sDots, function (d, j) { d.classList.toggle('active', j === sIdx); });
+    }
+    function startAuto() {
+      stopAuto();
+      sTimer = setInterval(function () { showStats(sIdx + 1); }, 4000);
+    }
+    function stopAuto() {
+      if (sTimer) { clearInterval(sTimer); sTimer = null; }
+    }
+    Array.prototype.forEach.call(sDots, function (d, j) {
+      d.addEventListener('click', function () { showStats(j); startAuto(); });
+    });
+    statsCarousel.addEventListener('mouseenter', stopAuto);
+    statsCarousel.addEventListener('mouseleave', startAuto);
+    if (sSlides.length > 1) startAuto();
+  }
 });
