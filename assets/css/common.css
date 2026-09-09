@@ -485,20 +485,6 @@ img {
   letter-spacing: 0.08em;
 }
 
-.cat-filters-toolbar {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 8px;
-}
-
-.cat-filters--full-collapse.collapsed .cat-filter-row {
-  display: none;
-}
-
-.cat-filters--full-collapse.collapsed .cat-filter-row:not(:first-child) {
-  display: none;
-}
-
 /* 副标题翻页数字卡（odometer） */
 .odometer-wrap {
   display: flex;
