@@ -80,55 +80,72 @@
   <!-- 主体内容 -->
   <main class="page-main about-main">
     <div class="container">
-      <h1 class="page-title">关于我们</h1>
-      <p class="page-desc">商务行业可信数据空间的使命、架构与服务体系</p>
+      <header class="about-hero">
+        <h1>关于我们</h1>
+        <p>商务行业可信数据空间的使命、架构与服务</p>
+      </header>
 
-      <section class="about-gallery" id="aboutGallery">
-        <div class="about-tabs">
-          <button class="about-tab active">
-            <span class="about-tab-num">01</span>
-            <span>数据规则总体</span>
-          </button>
-          <button class="about-tab">
-            <span class="about-tab-num">02</span>
-            <span>规则运营与价值释放</span>
-          </button>
-          <button class="about-tab">
-            <span class="about-tab-num">03</span>
-            <span>一体化解决方案</span>
-          </button>
+      <!-- 1. 空间介绍：左图右文 -->
+      <section class="about-section about-intro">
+        <div class="about-media">
+          <img src="./assets/images/关于我们/slide2.png" alt="数据规则运营与价值释放">
         </div>
+        <div class="about-text">
+          <h2>中国国际电子商务中心</h2>
+          <p>中国国际电子商务中心是商务部直属事业单位，长期承担国家电子商务相关建设与服务工作，是商务行业可信数据空间的建设和运营主体。</p>
+          <p>中心汇聚数据、规则、平台与服务能力，链接政府、行业组织、市场主体等多方资源，构建覆盖规则跟踪、规则研究、规则引领、规则运营全链条的服务体系，为商务领域数据要素市场化配置提供权威支撑。</p>
+        </div>
+      </section>
 
-        <div class="about-stage">
-          <figure class="about-panel active">
-            <div class="about-panel-frame">
-              <img src="./assets/images/关于我们/slide1.png" alt="数据规则总体">
-            </div>
-            <figcaption>
-              <span class="about-panel-title">数据规则总体</span>
-              <span class="about-panel-desc">围绕规则跟踪、规则研究、规则引领、规则运营四大环节，构建数据规则总体框架</span>
-            </figcaption>
-          </figure>
+      <!-- 2. 空间架构：居中标题 + 两张大图 -->
+      <section class="about-section about-arch">
+        <h2 class="about-section-title">空间架构</h2>
+        <div class="about-arch-stack">
+          <div class="about-arch-frame">
+            <img src="./assets/images/关于我们/slide1.png" alt="数据规则总体">
+          </div>
+          <div class="about-arch-frame">
+            <img src="./assets/images/关于我们/slide3.png" alt="商务数据要素一体化服务综合解决方案">
+          </div>
+        </div>
+      </section>
 
-          <figure class="about-panel">
-            <div class="about-panel-frame">
-              <img src="./assets/images/关于我们/slide2.png" alt="数据规则运营驱动数据要素价值释放">
-            </div>
-            <figcaption>
-              <span class="about-panel-title">数据规则运营驱动数据要素价值释放</span>
-              <span class="about-panel-desc">面向跨境与境内两类市场主体，提供规则运营全流程服务能力</span>
-            </figcaption>
-          </figure>
+      <!-- 3. 公司介绍：纯文字 -->
+      <section class="about-section about-company about-company-text-only">
+        <div class="about-text">
+          <h2>商务行业可信数据空间</h2>
+          <p>由商务部指导、中国国际电子商务中心建设和运营的商务领域国家级数据基础设施。围绕规则跟踪、规则研究、规则引领、规则运营四大环节，面向跨境与境内两类市场主体，提供数据要素流通全流程服务，夯实数字经济新型基础设施。</p>
+          <p>平台以技术底座护航数据合规流通，聚焦商务领域数据资源向数据资产、数据产品、数据服务的高效转化，为政府、行业组织、市场主体构建权威、可信的数据要素流通体系。</p>
+        </div>
+      </section>
 
-          <figure class="about-panel">
-            <div class="about-panel-frame">
-              <img src="./assets/images/关于我们/slide3.png" alt="商务数据要素一体化服务综合解决方案">
+      
+
+      <!-- 5. 联系我们：左信息 + 右地图占位 -->
+      <section class="about-section about-contact" id="contact">
+        <h2 class="about-section-title">联系我们</h2>
+        <div class="about-contact-grid">
+          <div class="about-contact-info">
+            <div class="contact-item">
+              <span class="contact-label">联系电话</span>
+              <span>010-67870108</span>
             </div>
-            <figcaption>
-              <span class="about-panel-title">商务数据要素一体化服务综合解决方案</span>
-              <span class="about-panel-desc">围绕空间运营、空间生态与规则支撑，形成一体化综合解决方案</span>
-            </figcaption>
-          </figure>
+            <div class="contact-item">
+              <span class="contact-label">邮 编</span>
+              <span>100176</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">地 址</span>
+              <span>北京经济技术开发区荣华中路 11 号</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">运营单位</span>
+              <span>中国国际电子商务中心</span>
+            </div>
+          </div>
+          <div class="about-contact-map" aria-label="地图占位">
+            <span>地图区域 · 待接入在线地图</span>
+          </div>
         </div>
       </section>
     </div>
