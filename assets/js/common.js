@@ -3,9 +3,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   var sideToast = document.getElementById('sideToast');
   var sideToastMessages = {
-    publish: '发布需求（占位）',
     cart: '购物车（占位）',
-    service: '联系客服（占位）'
+    service: '智能客服（占位）',
+    feedback: '意见反馈（占位）'
   };
   var toastTimer = null;
 

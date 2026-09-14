@@ -225,67 +225,71 @@ img {
   background: var(--primary-bg);
 }
 
-/* ========== 侧边栏（右侧悬浮工具条） ========== */
+/* ========== 侧边栏（左侧图文工具条） ========== */
 .side-bar {
   position: fixed;
   top: 50%;
-  right: 20px;
+  right: 0;
   transform: translateY(-50%);
   z-index: 200;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 4px;
+  width: 80px;
+  padding: 8px 4px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border-light);
+  border-right: 0;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  box-shadow: 4px 8px 24px rgba(15, 23, 42, 0.12);
 }
 
 .side-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  padding: 10px;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-full);
-  background: var(--white);
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 76px;
+  padding: 8px 2px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
   color: var(--text-secondary);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: all 0.2s;
-  overflow: hidden;
 }
 
 .side-item:hover {
-  background: var(--primary-light);
-  color: var(--white);
-  border-color: var(--primary-light);
+  background: var(--primary-bg);
+  color: var(--primary-light);
 }
 
 .side-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 34px;
+  height: 34px;
   flex-shrink: 0;
+  color: var(--primary-light);
+  background: #EAF2FF;
+  border-radius: 50%;
 }
 
 .side-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .side-label {
-  max-width: 0;
-  opacity: 0;
+  max-width: none;
+  opacity: 1;
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-  transition: max-width 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
-}
-
-.side-item:hover .side-label {
-  max-width: 80px;
-  opacity: 1;
-  margin-left: 4px;
+  transition: color 0.2s ease;
 }
 
 .side-toast {
@@ -521,6 +525,16 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: stretch;
+}
+
+.about-intro.about-intro-text-only {
+  display: block;
+}
+
+.about-intro-text-only .about-text {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 8px;
 }
 
 .about-media {
