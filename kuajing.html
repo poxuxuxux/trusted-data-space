@@ -903,7 +903,7 @@
       <div class="nav-center" id="navCenter">
         <div class="nav-menu">
           <a href="index.html" class="nav-link active">首页</a>
-          <a href="data-resource.html" class="nav-link">数据目录</a>
+          <a href="#" class="nav-link" data-toast="跨境平台数据目录正在建设中，敬请期待">数据目录</a>
           <a href="#" class="nav-link">数据规则</a>
           <a href="#" class="nav-link">工具服务</a>
           <a href="#" class="nav-link">咨询服务</a>
@@ -915,7 +915,7 @@
               <a href="rukiao.html" class="nav-dropdown-item">数据资源入表公共服务平台</a>
             </div>
           </div>
-          <a href="about.html" class="nav-link">关于我们</a>
+          <a href="#" class="nav-link" data-toast="跨境平台关于我们页面正在建设中，敬请期待">关于我们</a>
         </div>
       </div>
       <div class="nav-right">
@@ -1169,7 +1169,7 @@
           <a href="connector.html" class="footer-link">接入连接器</a>
           <a href="#" class="footer-link">帮助中心</a>
           <a href="#" class="footer-link">联系客服</a>
-          <a href="about.html" class="footer-link">关于我们</a>
+          <a href="#" class="footer-link" data-toast="跨境平台关于我们页面正在建设中，敬请期待">关于我们</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">友情链接</div>
@@ -1212,12 +1212,23 @@
     sideItems.forEach(item => {
       item.addEventListener('click', () => {
         const action = item.dataset.action;
-        sideToast.textContent = sideToastMessages[action] || '占位功能';
-        sideToast.classList.add('show');
-        clearTimeout(sideToastTimer);
-        sideToastTimer = setTimeout(() => {
-          sideToast.classList.remove('show');
-        }, 2000);
+        showSideToast(sideToastMessages[action] || '占位功能');
+      });
+    });
+
+    function showSideToast(message) {
+      sideToast.textContent = message;
+      sideToast.classList.add('show');
+      clearTimeout(sideToastTimer);
+      sideToastTimer = setTimeout(() => {
+        sideToast.classList.remove('show');
+      }, 2000);
+    }
+
+    document.querySelectorAll('[data-toast]').forEach(item => {
+      item.addEventListener('click', event => {
+        event.preventDefault();
+        showSideToast(item.dataset.toast);
       });
     });
 
