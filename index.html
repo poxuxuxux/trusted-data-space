@@ -328,7 +328,8 @@
       transition: opacity 0.2s, visibility 0.2s;
     }
 
-    .nav-item-has-dropdown:hover .nav-dropdown {
+    .nav-item-has-dropdown:hover .nav-dropdown,
+    .nav-item-has-dropdown:focus-within .nav-dropdown {
       opacity: 1;
       visibility: visible;
     }
@@ -1265,14 +1266,14 @@
           <a href="data-product.html" class="nav-link">数据产品</a>
           <a href="supply-demand.html" class="nav-link">供需大厅</a>
           <div class="nav-item-has-dropdown">
-            <a href="zone-nodes.html" class="nav-link">专区节点</a>
+            <a href="#" class="nav-link" aria-haspopup="true">专区节点</a>
             <div class="nav-dropdown">
               <a href="car-data-space.html" class="nav-dropdown-item">汽车可信数据空间</a>
             </div>
           </div>
           <a href="connector.html" class="nav-link">接入连接器</a>
           <div class="nav-item-has-dropdown">
-            <a href="platform-nav.html" class="nav-link">平台导航</a>
+            <a href="#" class="nav-link" aria-haspopup="true">平台导航</a>
             <div class="nav-dropdown">
               <a href="index.html" class="nav-dropdown-item current">商务行业可信数据空间</a>
               <a href="kuajing.html" class="nav-dropdown-item">数据跨境流动一体化综合服务平台</a>
@@ -1583,6 +1584,11 @@
         filterTags.forEach(t => t.classList.remove('active'));
         tag.classList.add('active');
       });
+    });
+
+    // 下拉导航主项仅展开菜单，不跳转到占位页面
+    document.querySelectorAll('.nav-item-has-dropdown > .nav-link').forEach(link => {
+      link.addEventListener('click', (e) => e.preventDefault());
     });
 
     // 侧边栏功能
